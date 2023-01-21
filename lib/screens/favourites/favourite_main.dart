@@ -91,7 +91,7 @@ class _FavouritePageState extends State<FavouritePage> {
         padding: const EdgeInsets.all(20.0),
         itemCount: _favourite.length,
         itemBuilder: (BuildContext context, int index) {
-          index = index + 1;
+          int numberline = index + 1;
           final item = _favourite[index] as Map;
           final name = item['name_company'] as String;
           final image = item['image_company'] as String;
@@ -132,7 +132,7 @@ class _FavouritePageState extends State<FavouritePage> {
                   backgroundColor: Colors.grey[900],
                   radius: 30.0,
                   child: Text(
-                    '$index',
+                    '$numberline',
                     style: TextStyle(color: Colors.white),
                   )
                   // padding const EdgeInsets.all(2.0),
