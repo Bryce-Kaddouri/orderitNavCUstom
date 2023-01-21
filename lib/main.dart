@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+import 'package:ordernav/screens/favourites/favourite_main.dart';
+
+// screens import
+import 'screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +16,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'OrderIt',
+      title: 'OrderIT',
       theme: ThemeData(),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'OrderIT'),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -144,32 +148,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: const Center(
-        child: Text("Home Page"),
-      ),
-    );
-  }
-}
-
-class FavouritePage extends StatelessWidget {
-  const FavouritePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: const Center(
-        child: Text("Favourite Page"),
       ),
     );
   }
