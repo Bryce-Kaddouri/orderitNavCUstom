@@ -97,6 +97,21 @@ class _FavouritePageState extends State<FavouritePage> {
           final image = item['image_company'] as String;
 
           return Container(
+            foregroundDecoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100.0),
+              border: Border.all(
+                color: Colors.grey.withOpacity(1.0),
+                width: 1.0,
+              ),
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100.0),
+              color: Colors.white,
+              border: Border.all(
+                color: Colors.grey.withOpacity(1.0),
+                width: 1.0,
+              ),
+            ),
             alignment: Alignment.center,
             margin: const EdgeInsets.only(bottom: 14.0),
             child: ListTile(

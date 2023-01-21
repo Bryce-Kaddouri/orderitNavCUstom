@@ -12,8 +12,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: //rgb = f2efeb
-          Color.fromARGB(255, 232, 228, 224),
       child: Center(
         child: Row(
           children: [

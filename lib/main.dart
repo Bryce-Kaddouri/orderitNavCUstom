@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 import 'package:ordernav/screens/favourites/favourite_main.dart';
+import 'package:ordernav/screens/orders/orders_main.dart';
 
 // screens import
 import 'screens/home_page.dart';
@@ -60,7 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: NewGradientAppBar(
           title: Center(
             child: Text(_title[_selectedIndex],
-                style: const TextStyle(color: Colors.black)),
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 40,
+                    fontWeight: FontWeight.w500)),
           ),
           gradient: const LinearGradient(
             colors: [
@@ -69,13 +73,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-        body: const [
-          HomePage(),
-          FavouritePage(),
-          NewOrderPage(),
-          OrdersPage(),
-          ProfilePage(),
-        ][_selectedIndex],
+        body: Container(
+            color: //rgb = f2efeb
+                Color.fromARGB(255, 147, 143, 139),
+            child: const [
+              HomePage(),
+              FavouritePage(),
+              NewOrderPage(),
+              OrdersPage(),
+              ProfilePage(),
+            ][_selectedIndex]),
         bottomNavigationBar: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: BottomAppBar(
@@ -161,19 +168,6 @@ class NewOrderPage extends StatelessWidget {
     return Container(
       child: const Center(
         child: Text("New Order Page"),
-      ),
-    );
-  }
-}
-
-class OrdersPage extends StatelessWidget {
-  const OrdersPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: const Center(
-        child: Text("Orders Page"),
       ),
     );
   }
