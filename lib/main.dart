@@ -27,16 +27,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -49,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // liste title appbar
   final List<String> _title = [
     "Home",
-    "Favourite",
+    "Favourites",
     "New Order",
     "Orders",
     "Profile",
@@ -63,8 +53,8 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text(_title[_selectedIndex],
                 style: const TextStyle(
                     color: Colors.black,
-                    fontSize: 40,
-                    fontWeight: FontWeight.w500)),
+                    fontSize: 30,
+                    fontWeight: FontWeight.w400)),
           ),
           gradient: const LinearGradient(
             colors: [
@@ -74,8 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         body: Container(
-            color: //rgb = f2efeb
-                Color.fromARGB(255, 147, 143, 139),
+            color: Colors.grey[300],
             child: const [
               HomePage(),
               FavouritePage(),
@@ -83,43 +72,55 @@ class _MyHomePageState extends State<MyHomePage> {
               OrdersPage(),
               ProfilePage(),
             ][_selectedIndex]),
-        bottomNavigationBar: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: BottomAppBar(
-            elevation: 20,
-            child: Row(
-              children: [
-                buildNavItem(Icons.home, "Home", 0),
-                buildNavItem(Icons.favorite_border, "Favourite", 1),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _selectedIndex = 2;
-                    });
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(vertical: 10),
-                    width: 88,
-                    height: 70,
+        bottomNavigationBar: Container(
+          decoration: const BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromRGBO(33, 33, 33, 1),
+                blurRadius: 10,
+                spreadRadius: 0,
+                offset: Offset(0, 1),
+              ),
+            ],
+          ),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: BottomAppBar(
+              elevation: 50,
+              child: Row(
+                children: [
+                  buildNavItem(Icons.home, "Home", 0),
+                  buildNavItem(Icons.favorite_border, "Favourites", 1),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedIndex = 2;
+                      });
+                    },
                     child: Container(
-                      padding: const EdgeInsets.only(top: 10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.orange[700],
-                      ),
-                      child: Column(
-                        children: const [
-                          Icon(Icons.add, color: Colors.white),
-                          Text("New Order",
-                              style: TextStyle(color: Colors.white)),
-                        ],
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      width: 88,
+                      height: 70,
+                      child: Container(
+                        padding: const EdgeInsets.only(top: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.orange[700],
+                        ),
+                        child: Column(
+                          children: const [
+                            Icon(Icons.add, color: Colors.white),
+                            Text("New Order",
+                                style: TextStyle(color: Colors.white)),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                buildNavItem(Icons.article_outlined, "Orders", 3),
-                buildNavItem(Icons.account_circle, "Profile", 4),
-              ],
+                  buildNavItem(Icons.article_outlined, "Orders", 3),
+                  buildNavItem(Icons.account_circle, "Profile", 4),
+                ],
+              ),
             ),
           ),
         ));

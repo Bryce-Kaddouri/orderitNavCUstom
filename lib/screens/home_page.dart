@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                     margin: const EdgeInsets.only(
                         top: 20, left: 15, right: 10, bottom: 5),
                     width: MediaQuery.of(context).size.width * 0.5 - 20,
-                    height: MediaQuery.of(context).size.height * 0.5 - 110,
+                    height: MediaQuery.of(context).size.height * 0.5 - 140,
                     // 100 because 30 for the appbar and 70 for the bottom nav bar
                     child: Column(
                       children: [
@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
                           height:
                               MediaQuery.of(context).size.height / 2.8 - 110,
                           decoration: BoxDecoration(
-                            color: Colors.black,
+                            color: Colors.white,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(10),
                               topRight: Radius.circular(10),
@@ -108,7 +108,7 @@ class HomePage extends StatelessWidget {
                     margin: const EdgeInsets.only(
                         left: 15, right: 10, top: 5, bottom: 10),
                     width: MediaQuery.of(context).size.width * 0.5 - 20,
-                    height: MediaQuery.of(context).size.height * 0.5 - 110,
+                    height: MediaQuery.of(context).size.height * 0.5 - 140,
                     // 100 because 30 for the appbar and 70 for the bottom nav bar
                     child: Column(
                       children: [
@@ -183,7 +183,7 @@ class HomePage extends StatelessWidget {
                       left: 5,
                     ),
                     width: MediaQuery.of(context).size.width * 0.5 - 20,
-                    height: MediaQuery.of(context).size.height * 0.5 - 110,
+                    height: MediaQuery.of(context).size.height * 0.5 - 140,
                     child: Column(
                       children: [
                         Container(
@@ -211,7 +211,7 @@ class HomePage extends StatelessWidget {
                           "2",
                           style: TextStyle(
                             color: Colors.grey[700],
-                            fontSize: MediaQuery.of(context).size.height / 30,
+                            fontSize: 20,
                           ),
                         ),
                       ],
@@ -252,7 +252,7 @@ class HomePage extends StatelessWidget {
                           bottom: 10,
                         ),
                         width: MediaQuery.of(context).size.width * 0.5 - 20,
-                        height: MediaQuery.of(context).size.height * 0.5 - 110,
+                        height: MediaQuery.of(context).size.height * 0.5 - 140,
                         child: Column(
                           children: [
                             Container(
