@@ -73,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ProfilePage(),
             ][_selectedIndex]),
         bottomNavigationBar: Container(
+          height: 74,
           decoration: const BoxDecoration(
             boxShadow: [
               BoxShadow(

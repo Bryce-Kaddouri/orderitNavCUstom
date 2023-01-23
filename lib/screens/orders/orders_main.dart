@@ -20,6 +20,7 @@ class _OrdersPageState extends State<OrdersPage> {
         child: Column(
           children: [
             PaginatedDataTable(
+              showCheckboxColumn: false,
               columnSpacing: // auto spacing to take up the whole width
                   MediaQuery.of(context).size.width - // width of the screen
                       20 * 2 - // horizontal margin
@@ -28,6 +29,7 @@ class _OrdersPageState extends State<OrdersPage> {
               showFirstLastButtons: true,
               rowsPerPage: 5,
               source: _data,
+
               columns: const [
                 DataColumn(
                     label: Text(
@@ -51,6 +53,7 @@ class _OrdersPageState extends State<OrdersPage> {
   }
 }
 
+// data for the paginate table
 class MyData extends DataTableSource {
   final List<Map<String, dynamic>> _data = List.generate(
       200,
@@ -60,14 +63,27 @@ class MyData extends DataTableSource {
                 index % 2 == 0 ? 'COMPLETED' : 'DRAFT',
           });
 
+  late BuildContext context;
+
   @override
   DataRow? getRow(int index) {
     final _orderDate = _data[index]['order_date'];
     final _orderStatus = _data[index]['order_status'];
 
     return DataRow(
+      // displqy an alertdialog when the row is tapped
+      onSelectChanged: (value) {
+        if (value == true) {
+          // displqy a snakbar when the row is tapped
+          print('number of row: $index');
+          print('order date: $_orderDate');
+          print('order status: $_orderStatus');
+        }
+      },
       cells: [
-        DataCell(Text(_orderDate)),
+        DataCell(
+          Text(_orderDate),
+        ),
         DataCell(
           Text(
             _orderStatus,
@@ -85,10 +101,8 @@ class MyData extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  // TODO: implement rowCount
   int get rowCount => _data.length;
 
   @override
-  // TODO: implement selectedRowCount
   int get selectedRowCount => 0;
 }

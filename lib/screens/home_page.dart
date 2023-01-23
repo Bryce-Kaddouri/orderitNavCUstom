@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ordernav/main.dart';
 import 'package:ordernav/screens/orders/orders_list.dart';
+import 'package:ordernav/screens/orders/orders_main.dart';
 import 'package:ordernav/screens/profile/profile_list.dart';
 import 'favourites/favourite_list.dart';
 import 'suppliers/suppliers_list.dart';
+import 'package:ordernav/widget/card_home.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -11,284 +14,77 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // if width screen < height screen => font size = 20 else font size = 30
+    final double fontSize =
+        MediaQuery.of(context).size.width < MediaQuery.of(context).size.height
+            ? 27
+            : 40; // ignore: prefer_const_constructors
+
     return Container(
-      child: Center(
-        child: Row(
-          children: [
-            // -------------- start column 1 ------------------ //
-            Column(
-              children: [
-                // container for suppliers
-                GestureDetector(
-                  onTap: () {
-                    print("tapped on suppliers home screen");
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SuppliersListPage(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(),
-                      ],
-                      border: Border.all(
-                        color: Color.fromRGBO(224, 224, 224, 1),
-                        width: 1,
-                      ),
-                    ),
-                    margin: const EdgeInsets.only(
-                        top: 20, left: 15, right: 10, bottom: 5),
-                    width: MediaQuery.of(context).size.width * 0.5 - 20,
-                    height: MediaQuery.of(context).size.height * 0.5 - 140,
-                    // 100 because 30 for the appbar and 70 for the bottom nav bar
-                    child: Column(
-                      children: [
-                        Container(
-                          height:
-                              MediaQuery.of(context).size.height / 2.8 - 110,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 30,
-                        ),
-                        Text(
-                          "Suppliers",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          "2",
-                          style: TextStyle(
-                            color: Colors.grey[700],
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
+      width: double.infinity,
+      color: Colors.grey[300],
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              CardHome(
+                title: 'Suppliers',
+                logo: const FlutterLogo(
+                  size: 100,
+                ),
+                fontSize: fontSize,
+                subTitle: '3/4',
+                widget: const SuppliersListPage(),
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              CardHome(
+                  title: 'Suppliers',
+                  logo: const FlutterLogo(
+                    size: 100,
                   ),
+                  fontSize: fontSize,
+                  subTitle: '3/4',
+                  widget: const OrdersListPage()),
+              const SizedBox(
+                width: 15,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          Row(
+            children: [
+              CardHome(
+                title: 'Suppliers',
+                logo: const FlutterLogo(
+                  size: 100,
                 ),
-                // ---------------- end container for suppliers ------------------ //
-
-                // ---------------- start  box favorites -------------------- //
-                GestureDetector(
-                  onTap: () {
-                    print("tapped on favourites home screen");
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const FavouritePageList(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      boxShadow: [
-                        BoxShadow(),
-                      ],
-                      border: Border.all(
-                        color: Color.fromRGBO(224, 224, 224, 1),
-                        width: 1,
-                      ),
-                    ),
-                    margin: const EdgeInsets.only(
-                        left: 15, right: 10, top: 5, bottom: 10),
-                    width: MediaQuery.of(context).size.width * 0.5 - 20,
-                    height: MediaQuery.of(context).size.height * 0.5 - 140,
-                    // 100 because 30 for the appbar and 70 for the bottom nav bar
-                    child: Column(
-                      children: [
-                        Container(
-                          height:
-                              MediaQuery.of(context).size.height / 2.8 - 110,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 30,
-                        ),
-                        Text(
-                          "Favourites",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          "3/4",
-                          style: TextStyle(
-                            color: Colors.grey[700],
-                            fontSize: MediaQuery.of(context).size.height / 30,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                fontSize: fontSize,
+                subTitle: '3/4',
+                widget: const FavouritePageList(),
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              CardHome(
+                title: 'Suppliers',
+                logo: const FlutterLogo(
+                  size: 100,
                 ),
-                // ---------------- end  box favourites -------------------- //
-              ],
-            ),
-            // -------------- end column 1 ------------------ //
-            // -------------- start column 2 ------------------ //
-            Column(
-              children: [
-                // ---------------- start  box orders -------------------- //
-                GestureDetector(
-                  onTap: () {
-                    print("tapped on orders home screen");
-
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const OrdersListPage(),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Color.fromRGBO(224, 224, 224, 1),
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                      boxShadow: [
-                        BoxShadow(),
-                      ],
-                    ),
-                    margin: EdgeInsets.only(
-                      top: 20,
-                      bottom: 5,
-                      left: 5,
-                    ),
-                    width: MediaQuery.of(context).size.width * 0.5 - 20,
-                    height: MediaQuery.of(context).size.height * 0.5 - 140,
-                    child: Column(
-                      children: [
-                        Container(
-                          height:
-                              MediaQuery.of(context).size.height / 2.8 - 110,
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 30,
-                        ),
-                        Text(
-                          "Orders",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          "2",
-                          style: TextStyle(
-                            color: Colors.grey[700],
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                // ---------------- end  box order -------------------- //
-
-                Row(
-                  children: [
-                    // ---------------- start  profile box -------------------- //
-                    GestureDetector(
-                      onTap: () {
-                        print("tapped on profile home screen");
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ProfileListPage(),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(),
-                          ],
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                          border: Border.all(
-                            color: Color.fromRGBO(224, 224, 224, 1),
-                            width: 1,
-                          ),
-                        ),
-                        margin: EdgeInsets.only(
-                          top: 5,
-                          bottom: 10,
-                        ),
-                        width: MediaQuery.of(context).size.width * 0.5 - 20,
-                        height: MediaQuery.of(context).size.height * 0.5 - 140,
-                        child: Column(
-                          children: [
-                            Container(
-                              height: MediaQuery.of(context).size.height / 2.8 -
-                                  110,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10),
-                                ),
-                                color: Colors.black,
-                              ),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height / 30,
-                            ),
-                            Text(
-                              "Profile",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-
-                // ---------------- end  box Profile -------------------- //
-              ],
-            ),
-            // -------------- end column 2 ------------------ //
-          ],
-        ),
+                fontSize: fontSize,
+                subTitle: '3/4',
+                widget: const ProfileListPage(),
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
