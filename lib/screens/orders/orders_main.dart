@@ -150,14 +150,13 @@ class _OrdersPageState extends State<OrdersPage> {
   Widget bottombarTableRight() {
     return Container(
       alignment: Alignment.centerRight,
-      margin: const EdgeInsets.only(top: 35),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(30),
         ),
       ),
       width: MediaQuery.of(context).size.width * 0.67 - 10,
-      height: 50,
+      height: 30,
       child: Row(
         children: [
           Container(
@@ -224,7 +223,6 @@ class _OrdersPageState extends State<OrdersPage> {
   Widget bottombarTableLeft() {
     return Container(
       alignment: Alignment.center,
-      margin: const EdgeInsets.only(top: 35),
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -232,7 +230,7 @@ class _OrdersPageState extends State<OrdersPage> {
         ),
       ),
       width: MediaQuery.of(context).size.width * 0.33 - 10,
-      height: 50,
+      height: 30,
       child: Text("1 - 5 of 5",
           style: const TextStyle(
             fontSize: 15,

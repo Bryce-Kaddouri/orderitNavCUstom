@@ -66,14 +66,14 @@ class HomePage extends StatelessWidget {
                           "Suppliers",
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: MediaQuery.of(context).size.height / 20,
+                              fontSize: 20,
                               fontWeight: FontWeight.w600),
                         ),
                         Text(
                           "2",
                           style: TextStyle(
                             color: Colors.grey[700],
-                            fontSize: MediaQuery.of(context).size.height / 30,
+                            fontSize: 20,
                           ),
                         ),
                       ],
@@ -130,7 +130,7 @@ class HomePage extends StatelessWidget {
                           "Favourites",
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: MediaQuery.of(context).size.height / 22,
+                              fontSize: 20,
                               fontWeight: FontWeight.w600),
                         ),
                         Text(
@@ -204,7 +204,7 @@ class HomePage extends StatelessWidget {
                           "Orders",
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: MediaQuery.of(context).size.height / 20,
+                              fontSize: 20,
                               fontWeight: FontWeight.w600),
                         ),
                         Text(
@@ -273,8 +273,7 @@ class HomePage extends StatelessWidget {
                               "Profile",
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize:
-                                      MediaQuery.of(context).size.height / 20,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.w600),
                             ),
                           ],
